@@ -11,7 +11,7 @@ class AuthenticatedSessionController extends Controller
 {
     public function create()
     {
-        return view('customer.login');
+        return view('customerss.login');
     }
 
        public function store(LoginRequest $request)
@@ -20,7 +20,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect('/');
+        return redirect()->route('welcome');
     }
 
     public function destroy(Request $request)
@@ -31,7 +31,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect()->route('welcome');
     }
 
 }

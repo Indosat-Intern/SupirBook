@@ -51,13 +51,13 @@ class DriverResource extends Resource
                         'inactive' => 'Inactive',
                     ])
                     ->required(),
-                // FileUpload::make('photo')
-                //     ->image()
-                //     ->disk('public')
-                //     ->directory('driver-photos')
-                //     ->visibility('public')
-                //     ->maxSize(5120) // 5MB limit
-                //     ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/gif']),
+                FileUpload::make('photo')
+                    ->image()
+                    ->disk('public')
+                    ->directory('driver-photos')
+                    ->visibility('public')
+                    ->maxSize(5120)
+                    ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/gif']),
             ]);
     }
 

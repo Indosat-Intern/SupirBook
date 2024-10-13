@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Booking;
 use App\Models\Driver;
+use Illuminate\Support\Facades\Auth;
 
 
 use Illuminate\Http\Request;
@@ -44,6 +45,16 @@ class BookingController extends Controller
 
         // return redirect()->route('booking.success', $booking);
         return redirect()->route('welcome', $booking);
+    }
+
+    public function history()
+    {
+        // Fetch bookings for the authenticated customer
+        $customer = Auth::guard('customer')->user();
+        $bookings = Booking::where('customer_id', $customer->id)->get();
+
+        // Pass bookings data to the view
+        return view('customerss.history', compact('bookings'));
     }
 
     public function success(Booking $booking)

@@ -1,6 +1,6 @@
 /* Global CSS (style.css) */
 * {
-    margin: 0;
+    /* margin: 0; */
     padding: 0;
     box-sizing: border-box;
 }
@@ -126,7 +126,7 @@ h1 .highlight {
 .book-btn {
     background-color: #ff1ea5;
     border: none;
-    /* border-radius: 100%; */
+    border-radius: 100%;
     color: white;
     padding: 0.5rem;
     font-size: 0.8rem;
@@ -142,7 +142,7 @@ footer {
     color: #fff;
     text-align: center;
     padding: 1rem;
-    /* position: fixed; */
+    position: fixed;
     bottom: 0;
     width: 100%;
 }
@@ -198,7 +198,8 @@ h2 {
     border: 1px solid #ccc;
 }
 
-.login-button, .register-button {
+.login-button,
+.register-button {
     width: 100%;
     padding: 10px;
     background-color: #21d88e;
@@ -209,16 +210,34 @@ h2 {
     cursor: pointer;
 }
 
-.login-button:hover, .register-button:hover {
+.login-button:hover,
+.register-button:hover {
     background-color: #19a278;
 }
 
-.register-link, .login-link {
+.login-as-admin {
+    width: 100%;
+    padding: 10px;
+    background-color: #1dac73;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.login-as-admin:hover {
+    background-color: #127155;
+}
+
+.register-link,
+.login-link {
     text-align: center;
     margin-top: 10px;
 }
 
-.register-link a, .login-link a {
+.register-link a,
+.login-link a {
     color: #21d88e;
     text-decoration: none;
 }
@@ -253,6 +272,7 @@ h2 {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 400px;
+    margin-bottom: 100px;
 }
 
 .booking-form h2 {
@@ -278,6 +298,35 @@ h2 {
     border: 1px solid #ccc;
 }
 
+.input-group input:focus {
+    outline: none;
+    border-color: #21d88e;
+}
+
+.input-group select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: white;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+    background-repeat: no-repeat;
+    background-position-x: 98%;
+    background-position-y: 50%;
+}
+
+.input-group select:focus {
+    outline: none;
+    border-color: #21d88e;
+}
+
+.input-group select option {
+    padding: 8px;
+}
+
 .submit-button {
     width: 100%;
     padding: 10px;
@@ -296,7 +345,7 @@ h2 {
 /* History page CSS (history.css) */
 .history-table-container {
     width: 100%;
-    max-width: 800px;
+    max-width: 1000px;
     margin: 2rem auto;
     overflow-x: auto;
 }
@@ -305,13 +354,17 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+    margin-bottom: 50px;
 }
 
-table, th, td {
+table,
+th,
+td {
     border: 1px solid #ddd;
 }
 
-th, td {
+th,
+td {
     padding: 12px;
     text-align: left;
 }
@@ -361,7 +414,12 @@ tr:hover {
         padding: 0 1rem;
     }
 
-    table, thead, tbody, th, td, tr {
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
         display: block;
     }
 

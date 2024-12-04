@@ -14,7 +14,12 @@
                 <input id="password" name="password" type="password" placeholder="Password" required>
             </div>
             <button type="submit" class="login-button">Log in</button>
-            <p class="register-link">Don't Have an Account? <a href="{{ route('customer.register') }}">Register</a></p>
+
+            <!-- Admin login button -->
+            <a href="{{ url('/admin/login') }}" class="login-as-admin"
+                style="text-align: center; display: block; margin-top: 10px; text-decoration: none;">as Admin</a>
         </form>
+
+        <p class="register-link">Don't Have an Account? <a href="{{ route('customer.register') }}">Register</a></p>
     </div>
 @endsection

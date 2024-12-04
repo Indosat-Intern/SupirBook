@@ -27,7 +27,7 @@ class DriverResource extends Resource
 
     protected static ?string $navigationGroup = 'Account';
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-user-group';
 
     public static function form(Form $form): Form
     {
@@ -57,7 +57,7 @@ class DriverResource extends Resource
                     ->directory('driver-photos')
                     ->visibility('public')
                     ->maxSize(5120)
-                    ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/gif']),
+                    ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/gif', 'image/jpg']),
             ]);
     }
 

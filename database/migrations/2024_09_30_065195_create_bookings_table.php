@@ -21,7 +21,8 @@ return new class extends Migration
             $table->string('destination');
             $table->string('pickup_location');
             $table->string('passenger');
-            $table->enum('status', ['pending', 'confirmed', 'cancelled'])->default('pending');
+            $table->enum('status', ['pending', 'confirmed', 'cancelled', 'done'])->default('pending');
+            $table->longText('note')->nullable();
             $table->timestamps();
         });
     }

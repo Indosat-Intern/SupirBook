@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('car_type');
             $table->string('phone');
             $table->string('photo')->nullable();
-            $table->enum('status', ['active', 'inactive'])->default('active');
+            $table->enum('status', ['active', 'inactive', 'booked'])->default('active');
             $table->timestamps();
         });
     }

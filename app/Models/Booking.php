@@ -18,6 +18,7 @@ class Booking extends Model
         'destination',
         'pickup_location',
         'passenger',
+        'note',
         'status'
     ];
 

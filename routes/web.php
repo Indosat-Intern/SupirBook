@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-// use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Middleware\RedirectIfNotCustomer;
 use App\Http\Controllers\Customer\RegisteredUserController;
 use App\Http\Controllers\Customer\AuthenticatedSessionController;
@@ -18,6 +17,8 @@ Route::middleware('auth:customer')->group(function () {
     Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
     Route::get('/booking/{booking}/success', [BookingController::class, 'success'])->name('booking.success');
     Route::get('/booking-history', [BookingController::class, 'history'])->name('booking.history');
+    Route::post('/booking/{booking}/done', [BookingController::class, 'markAsDone'])->name('booking.done');
+    Route::post('/booking/{booking}/cancel', [BookingController::class, 'markAsCancel'])->name('booking.cancel');
 });
 
 Route::get('/customer-register', [RegisteredUserController::class, 'create'])

@@ -4,32 +4,30 @@
 
 @section('content')
     <h1>Book Your <span class="highlight">Driver</span></h1>
-    <section class="drivers">
-        <article class="driver-card">
-            <img src="{{ asset('img/hendro.jpg') }}" alt="Pak Hendro" class="driver-photo">
-            <div class="driver-info">
-                <h2>Pak Hendro</h2>
-                <p>Available</p>
-            </div>
-        </article>
-        <article class="driver-card">
-            <img src="{{ asset('img/heri.jpg') }}" alt="Pak Heri" class="driver-photo">
-            <div class="driver-info">
-                <h2>Pak Heri</h2>
-                <p>Available</p>
-            </div>
-        </article>
-        <article class="driver-card">
-            <img src="{{ asset('img/sandy.jpg') }}" alt="Pak Sandy" class="driver-photo">
-            <div class="driver-info">
-                <h2>Pak Sandy</h2>
-                <p>Available</p>
-            </div>
-        </article>
-    </section>
-    @auth('customer')
-        <a href="{{ route('booking.index') }}" class="book-btn">BOOK NOW!!!</a>
+    @if ($drivers->isEmpty())
+        <p>No drivers available.</p>
     @else
-        <a href="{{ route('customer.login') }}" class="book-btn">BOOK NOW!!!</a>
-    @endauth
+        <section class="drivers">
+            @foreach ($drivers as $driver)
+                <article class="driver-card">
+                    <img src="{{ $driver->photo ? Storage::url($driver->photo) : asset('img/default-driver.jpg') }}"
+                        alt="{{ $driver->name }}" class="driver-photo">
+                    <div class="driver-info">
+                        <h2>{{ $driver->name }}</h2>
+                        <p>{{ ucfirst($driver->status) }}</p>
+                        @auth('customer')
+                            <a href="{{ route('booking.index', ['driver_id' => $driver->id]) }}" class="book-btn">
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        @else
+                            <a href="{{ route('customer.login') }}" class="book-btn">
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        @endauth
+                    </div>
+                </article>
+            @endforeach
+        </section>
+    @endif
+
 @endsection

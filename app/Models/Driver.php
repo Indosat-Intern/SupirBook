@@ -21,4 +21,19 @@ class Driver extends Model
     {
         return $this->hasMany(Booking::class);
     }
+
+    public function isAvailable()
+    {
+        return $this->status === 'active';
+    }
+
+    public function markAsBooked()
+    {
+        $this->update(['status' => 'booked']);
+    }
+
+    public function markAsAvailable()
+    {
+        $this->update(['status' => 'active']);
+    }
 }
